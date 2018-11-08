@@ -44,6 +44,38 @@ public class TestSorting {
 		BubbleSort.bubbleSort(sortMe);
 		Assert.assertTrue(checkSorted(sortMe));
 	}
-
-
+	
+	@Test
+	public void testSelectSort() {
+		ArrayList<Integer> sortMe = new ArrayList<>();
+		for (int y : data) {
+			sortMe.add(y);
+		}
+		SelectSort.selectSort(sortMe);
+		Assert.assertTrue(checkSorted(sortMe));
+		
+		// For good measure, let's shuffle it and sort it again to see if that works, too.
+		Collections.shuffle(sortMe);
+		SelectSort.selectSort(sortMe);
+		Assert.assertTrue(checkSorted(sortMe));
+	}
+	
+	@Test
+	public void testInsertSort() {
+		ArrayList<Integer> sortMe = new ArrayList<>();
+		for (int y : data) {
+			sortMe.add(y);
+		}
+		List<Integer> fixed = InsertSort.insertSort(sortMe);
+		checkSorted(fixed);
+		List<Integer> copy = InsertSort.insertSort(new ArrayList<>(sortMe));
+		
+		// For good measure, let's shuffle it and sort it again to see if that works, too.
+		Collections.shuffle(copy);
+		copy=InsertSort.insertSort(copy);
+		//checkSorted(copy);
+		Assert.assertTrue(checkSorted(copy));
+	}
 }
+
+
