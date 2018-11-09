@@ -34,17 +34,15 @@ public class MergeSortRecurs {
 				System.out.print(left);
 				
 			}
-			for (int j=mid;j<N-1;j++) {
+			//PROBLEM AREA
+			for (int j=mid;j<N;j++) {
 				//System.out.print(j);
 				right.add(j,input.get(j));
 				System.out.println("start right");
 				System.out.print(right);
 			
 			}
-//			System.out.print("left");
-//			System.out.println(left);
-//			System.out.println("right");
-//			System.out.println(right);
+
 			mergeSortRecurs(left);
 			mergeSortRecurs(right);
 			a = MergeSortLong.mergeSortLong(right,left);
