@@ -67,4 +67,45 @@ public class MergeSortLong {
         }
 		return sorted; //return sorted list
 	}
+	/**
+	 * Made new MergeSort so that would work for P6 Doubly Linked Lists
+	 * @param input-first Doubly Linked list
+	 * @param input2-second Doubly Linked list
+	 * @return sorted Doubly Linked list
+	 */
+	public static DoublyLinkedList<Integer> mergeSortLong(DoublyLinkedList<Integer> input, DoublyLinkedList<Integer> input2) {
+		int N = input.size();
+		int N2=input2.size();
+		
+		DoublyLinkedList<Integer> sorted = new DoublyLinkedList<>();
+		int i=0;
+		int j=0;
+		int key=1;
+		while (i<N && j<N2) {
+			if (input.getIndex(i)<= input2.getIndex(j)) {
+				sorted.addBack(input.getIndex(i));
+				i++;
+			}else {
+				sorted.addBack(input2.getIndex(j));
+				j++;
+			}key++;
+		}
+		
+		/* Copy remaining elements of input if any. Solves problem if other list
+		 * already empty */
+        while (i < N) { 
+        	sorted.addBack(input.getIndex(i));
+            i++; 
+            key++; 
+        } 
+
+        /* Copy remaining elements of input2 if any. Solves problem if other list
+         * already empty */
+        while (j < N2)  { 
+        	sorted.addBack(input2.getIndex(j));
+            j++; 
+            key++; 
+        }
+		return sorted; //return sorted list
+	}
 }
