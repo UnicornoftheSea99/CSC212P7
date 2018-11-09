@@ -32,7 +32,7 @@ public class MergeSortLong {
 	 * them to a bigger list so that it eventually becomes sorted.
 	 */
 
-	public static List<Integer> mergeSortLong(List<Integer> input, List<Integer> input2) {
+	public static ArrayList<Integer> mergeSortLong(List<Integer> input, List<Integer> input2) {
 		int N = input.size();
 		int N2=input2.size();
 		

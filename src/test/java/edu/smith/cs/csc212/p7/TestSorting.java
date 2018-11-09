@@ -76,21 +76,18 @@ public class TestSorting {
 		Assert.assertTrue(checkSorted(copy));
 	}
 	
-//	@Test
-//	public void testMergeSortL() {
-//		ArrayList<Integer> sortMe = new ArrayList<>();
-//		for (int y : data) {
-//			sortMe.add(y);
-//		}
-//		List<Integer> fixed = MergeSortLong.mergeSortLong(sortMe);
-//		checkSorted(fixed);
-//		List<Integer> copy = MergeSortLong.mergeSortLong(new ArrayList<>(sortMe));
-//		
-//		// For good measure, let's shuffle it and sort it again to see if that works, too.
-//		Collections.shuffle(copy);
-//		copy=MergeSortLong.mergeSortLong(copy);
-//		Assert.assertTrue(checkSorted(copy));
-//	}
+	@Test
+	public void testMergeSortRecurs() {
+		ArrayList<Integer> sortMe = new ArrayList<>();
+		for (int y : data) {
+			sortMe.add(y);
+		}
+		MergeSortRecurs Testing = new MergeSortRecurs();
+		MergeSortRecurs.mergeSortRecurs(sortMe);
+		ArrayList<Integer> a = Testing.returnA();
+		checkSorted(a);
+		Assert.assertTrue(checkSorted(a));
+	}
 	
 	private static int[] dataM1 = {1,2,3,4};
 	private static int[] dataM2 = {2,4,5,9};
